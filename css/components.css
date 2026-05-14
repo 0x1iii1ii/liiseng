@@ -1,0 +1,534 @@
+/* ── HERO PANE ── */
+#pane-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+#matrix-rain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    color: var(--red);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-name {
+    font-family: "VT323", monospace;
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1;
+    letter-spacing: 6px;
+    animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.hero-aka {
+    font-size: 0.85rem;
+    color: -var(--mid-orange);
+    /* margin-top: 0.8rem; */
+    animation: fadeUp 0.6s 0.55s ease both;
+}
+
+.hero-loc {
+    font-size: 0.78rem;
+    color: rgba(255, 166, 0, 0.627);
+    margin-top: 1rem;
+    animation: fadeUp 0.6s 0.65s ease both;
+}
+
+.hero-cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.65rem 2rem;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition:
+        background 0.2s,
+        color 0.2s;
+    animation: fadeUp 0.6s 0.8s ease both;
+    cursor: pointer;
+    background: transparent;
+}
+
+.hero-cta:hover {
+    background: var(--orange);
+    color: var(--bg);
+}
+
+
+
+/* ── ABOUT ── */
+.about-body p {
+    color: rgba(255, 165, 0, 0.72);
+    font-size: 0.88rem;
+    margin-bottom: 0.85rem;
+}
+
+/* ── SKILLS GRID ── */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    border: 1px solid var(--border);
+    padding: 1.4rem;
+    transition: background 0.2s;
+    cursor: default;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        background 0.2s;
+}
+
+.skill-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    background: var(--dim);
+}
+
+.skill-card h3 {
+    font-family: "VT323", monospace;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.35rem;
+}
+
+.skill-card p {
+    font-size: 0.76rem;
+    color: rgba(255, 165, 0, 0.5);
+    line-height: 1.6;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+    position: relative;
+    max-width: 680px;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: calc(100% - 1.5rem);
+    background: linear-gradient(to bottom, var(--orange), transparent);
+}
+
+.tl-item {
+    position: relative;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.tl-item.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.tl-item:last-child {
+    margin-bottom: 0;
+}
+
+.tl-dot {
+    position: absolute;
+    left: -1.58rem;
+    top: 0.52em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 6px var(--orange);
+    animation: pulse 2.5s infinite;
+}
+
+.tl-content h3 {
+    font-family: "VT323", monospace;
+    font-size: 1.08rem;
+    letter-spacing: 1.5px;
+}
+
+.tl-span {
+    font-size: 0.68rem;
+    color: var(--red);
+    letter-spacing: 2px;
+    display: block;
+    margin: 0.2rem 0 0.35rem;
+}
+
+.tl-content p {
+    font-size: 0.8rem;
+    color: rgba(255, 165, 0, 0.55);
+}
+
+/* ── PROJECTS GRID ── */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        transform 0.2s;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        border-color 0.2s;
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.project-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+}
+
+.project-img {
+    width: 100%;
+    height: 220px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    color: rgba(255, 165, 0, 0.2);
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-img .scan {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 165, 0, 0.12);
+    animation: none;
+}
+
+.project-card:hover .scan {
+    animation: scanline 1.4s linear infinite;
+}
+
+.project-info {
+    padding: 1.1rem;
+}
+
+.project-info h3 {
+    font-family: "VT323", monospace;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.project-info p {
+    font-size: 0.76rem;
+    color: rgba(255, 166, 0, 0.762);
+    margin-bottom: 0.8rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.8rem;
+}
+
+.project-tag {
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    padding: 0.12rem 0.4rem;
+    border: 1px solid var(--border-hi);
+    background: rgba(255, 165, 0, 0.08);
+    color: var(--orange);
+    backdrop-filter: blur(4px);
+}
+
+.project-readmore {
+    font-size: 0.72rem;
+    color: var(--orange);
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
+}
+
+.project-btn {
+    display: block;
+    padding: 0.48rem 1rem;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition:
+        background 0.2s,
+        color 0.2s;
+    margin-top: 1rem;
+    font-family: "Share Tech Mono", monospace;
+    cursor: pointer;
+    background: transparent;
+}
+
+.project-btn:hover {
+    background: var(--orange);
+    color: var(--bg);
+}
+
+.project-btn.disabled {
+    border-color: var(--border);
+    color: rgba(255, 165, 0, 0.22);
+    pointer-events: none;
+}
+
+/* ── SHOP ── */
+.shop-subtitle {
+    font-size: 0.8rem;
+    color: rgba(255, 166, 0, 0.689);
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.shop-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    background: var(--bg);
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.shop-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.shop-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+    background: var(--dim);
+}
+
+.shop-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+}
+
+.stock-badge {
+    color: var(--green);
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+}
+
+.stock-badge.low {
+    color: var(--orange);
+}
+
+.stock-badge.out {
+    color: rgba(255, 165, 0, 0.28);
+}
+
+.shop-sku {
+    color: rgba(255, 166, 0, 0.568);
+    font-size: 0.58rem;
+}
+
+.shop-img {
+    width: 100%;
+    height: 230px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: rgba(255, 165, 0, 0.18);
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.shop-img .scan {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 165, 0, 0.1);
+    top: -10%;
+}
+
+.shop-card:hover .shop-img .scan {
+    animation: scanline 1.6s linear infinite;
+}
+
+.shop-body {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.shop-name {
+    font-family: "VT323", monospace;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.shop-desc {
+    font-size: 0.7rem;
+    color: rgba(255, 166, 0, 0.616);
+    line-height: 1.5;
+    flex: 1;
+}
+
+.shop-meta {
+    border-top: 1px solid var(--border);
+    padding-top: 0.55rem;
+    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.shop-specs {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.shop-specs span {
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    padding: 0.12rem 0.4rem;
+    border: 1px solid var(--border-hi);
+    background: rgba(255, 165, 0, 0.08);
+    color: var(--orange);
+    backdrop-filter: blur(4px);
+}
+
+.shop-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.shop-qty {
+    font-size: 0.62rem;
+    color: rgba(255, 166, 0, 0.593);
+    letter-spacing: 1.5px;
+}
+
+.shop-price {
+    font-family: "VT323", monospace;
+    font-size: 1.55rem;
+    letter-spacing: 2px;
+}
+
+.shop-price small {
+    font-size: 0.78rem;
+    opacity: 0.55;
+}
+
+.shop-btn {
+    display: block;
+    padding: 0.48rem 1rem;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition:
+        background 0.2s,
+        color 0.2s;
+    margin-top: 0.25rem;
+    font-family: "Share Tech Mono", monospace;
+    cursor: pointer;
+    background: transparent;
+}
+
+.shop-btn:hover {
+    background: var(--orange);
+    color: var(--bg);
+}
+
+.shop-btn.disabled {
+    border-color: var(--border);
+    color: rgba(255, 165, 0, 0.22);
+    pointer-events: none;
+}
+
+[data-status="out"] .shop-img {
+    filter: none;
+}
+
+.shop-note {
+    font-size: 0.7rem;
+    color: rgba(255, 166, 0, 0.736);
+    letter-spacing: 1.5px;
+    text-align: center;
+}

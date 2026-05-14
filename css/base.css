@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #ffa500;
+    --red: #ff4500;
+    --green: #39ff14;
+    --dim_orange: rgba(255, 165, 0, 0.5);
+    --dim: rgba(255, 166, 0, 0.08);
+    --bg: #000;
+    --surface: #0a0a0a;
+    --surface2: #111;
+    --border: rgba(255, 165, 0, 0.18);
+    --border-hi: rgba(255, 165, 0, 0.45);
+    --container: 1000px;
+    --header-h: 52px;
+    --mid-orange: rgba(255, 166, 0, 0.534);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Share Tech Mono", monospace;
+    background: var(--bg);
+    color: var(--orange);
+    line-height: 1.7;
+    font-size: 1rem;
+    overflow: hidden;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: min(100% - 2rem, var(--container));
+    margin-inline: auto;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--orange);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.3;
+    }
+}
+
+@keyframes scanline {
+    0% {
+        top: -5%;
+    }
+
+    100% {
+        top: 110%;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+    .header-inner {
+        padding: 0 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .tabs a {
+        padding: 0 0.5rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.5px;
+    }
+
+    .pane-inner {
+        padding: 1.75rem 1rem 3rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}

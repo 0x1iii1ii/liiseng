@@ -1,0 +1,200 @@
+/* ── HEADER ── */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    height: var(--header-h);
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    width: 100%;
+    max-width: min(100% - 2rem, var(--container));
+    margin: 0 auto;
+    padding: 0 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--header-h);
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: "VT323", monospace;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: var(--orange);
+    white-space: nowrap;
+}
+
+.logo span {
+    font-size: 0.65rem;
+    color: var(--red);
+    letter-spacing: 2px;
+    font-family: "Share Tech Mono", monospace;
+    align-self: flex-end;
+    padding-bottom: 4px;
+}
+
+/* ── TABS ── */
+nav {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tabs li {
+    flex-shrink: 0;
+}
+
+.tabs a {
+    display: flex;
+    align-items: center;
+    height: var(--header-h);
+    padding: 0 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 165, 0, 0.45);
+    border-bottom: 2px solid transparent;
+    transition:
+        color 0.15s,
+        border-color 0.15s;
+    white-space: nowrap;
+}
+
+.tabs a:hover {
+    color: var(--orange);
+}
+
+.tabs a.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+}
+
+/* ── MAIN LAYOUT ── */
+main {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    min-height: 0;
+}
+
+.tab-pane {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    padding-bottom: 0;
+}
+
+.tab-pane.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── PANE INNER ── */
+.pane-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+}
+
+.pane-header {
+    margin-bottom: 2.5rem;
+}
+
+.pane-tag {
+    font-size: 0.68rem;
+    color: var(--red);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.pane-title {
+    font-family: "VT323", monospace;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    margin-top: 0.2rem;
+}
+
+.pane-desc {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: rgba(255, 166, 0, 0.76);
+    line-height: 1.6;
+}
+
+.pane-line {
+    width: 32px;
+    height: 2px;
+    background: var(--orange);
+    margin-top: 0.6rem;
+}
+
+/* ── FOOTER ── */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 166, 0, 0.56);
+    font-size: 0.75rem;
+}
+
+.social-links {
+    display: flex !important;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.social-links a {
+    width: 20px;
+    height: 20px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 166, 0, 0.65);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--orange);
+    transform: translateY(-1px);
+}
+
+.social-links svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: currentColor;
+}
