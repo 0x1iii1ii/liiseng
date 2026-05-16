@@ -12,7 +12,6 @@ export async function loadPages() {
         "home",
         "about",
         "skills",
-        "experience",
         "projects",
         "shop"
     ];
