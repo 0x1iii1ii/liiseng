@@ -22,10 +22,6 @@ function initPane(id) {
         revealItems("#skills-grid .skill-card");
     }
 
-    if (id === "exp") {
-        revealItems("#timeline .tl-item");
-    }
-
     if (id === "projects") {
         revealItems("#projects-grid .project-card");
     }
